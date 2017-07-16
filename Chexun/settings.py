@@ -16,10 +16,15 @@ NEWSPIDER_MODULE = 'Chexun.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'Chexun (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
+# Encoding
+# FEED_URI = r'temp.pkl'
+# FEED_EXPORT_ENCODING = 'utf-8'
+# FEED_FORMAT = 'pickle'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -67,7 +72,10 @@ ROBOTSTXT_OBEY = True
 #ITEM_PIPELINES = {
 #    'Chexun.pipelines.ChexunPipeline': 300,
 #}
-
+ITEM_PIPELINES = {
+    'Chexun.pipelines.MSSQLPipeline_CarModel': 300
+}
+CONNECTION_STRING_CHEXUN = "mssql+pymssql://sqlalchemy:a@DESKTOP-AVHJMM0\MSSQLSERVER13/Chexun"
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
